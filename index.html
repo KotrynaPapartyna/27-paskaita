@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27 paskaita</title>
+    <style>
+
+        .zalia {
+            background-color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div>1 vardas 1</div>
+
+        <div class="zalia">2 vardas 2</div>
+
+        <div> 3 vardas 3</div>
+        
+        <div class="zalia">4 vardas 4</div>
+    
+    </div>
+
+
+    <script>
+        "use strict"
+
+        //susikurti objektu masyva
+        //masyve- 100 objekto elementu
+        //objekto vidiniai kintamieji: id ir vardas
+        //vardas reiksme- vardas1, vardas2 ir t.t.
+        //id reiksmes- 1,2,3,4 
+
+        // kaip sukuriamas toks kieks objektu 
+        // kaip tiek objektai patalpinami i masyva
+
+    //pildomas dizainas- kas antras div- melynas, bus isvedami vardas ir id
+
+        //pasirenkamas konteineris, kur generuojami div'ai, kodas- cikle    
+        var container=document.querySelector(".container");
+
+        //sukuriamas tuscia masyvas
+        var masyvas=[]; 
+
+
+        //ciklas (var i=0 ir t.t.i - iteratorius), javascript for loop (google)
+        //issivesta 100 objektu
+        for (var i=0; i<100; i++) {
+            // var masyvas=[]; // surukuriamas tuscias masyvas
+            var masyvoObjektas= {
+            id: i+1,
+            vardas:"vardas"+(i+1), 
+        }; // sukuria objekta 
+
+            masyvas.push(masyvoObjektas); //objektas patalpinamas i masyva 
+            //console.log(masyvoObjektas);
+
+        }
+        //jeigu norima pasirinkti skaicius nuo iki rasoma naujoje salygoje 
+        //masyva.lenght- nurodo kad masyvo elementai- iki pabaigos 
+
+        for (var i=0; i<masyvas.length; i++) {
+
+            //susikuriamas div, bet dar neatvaizduojamas 
+            var div=document.createElement("div"); //void funkcija- console- rodoma dvigubai
+            //console.log(div);
+
+            // issivedama html vardas ir pavarde
+            div.innerHTML=masyvas[i].id + " " + masyvas[i].vardas;
+
+            //console.log(masyvas[i].id); // tokiu budu pasirenkamas masyve esancio objekto reiksmes- id 
+            //console.log(masyvas[i].vardas); // tokiu budu pasirenkamas masyve esancio objekto reiksmes- vardas
+            //console.log(masyvas[i]);
+           
+            //tikriname ar objektai dalijasi is dvieju be liekanos  % 
+            if(masyvas[i].id%2==0) {
+               //atvaizduojamas visas objektas kurio duomenu reikia 
+                console.log(masyvas[i]);
+                div.classList.add("zalia");
+            }
+
+        // prie konteinerio "prikabinamas" div'as
+        container.append(div);
+
+    }
+
+        //atvaizduoti tik lyginius elementus pagal id reiksme
+
+
+       // console.log(masyvas);
+
+       //issivedami tam tikri objektai//
+        //console.log(masyvas[54]);
+        //console.log(masyvas[3]);
+        //console.log(masyvas[55]);
+        
+
+    </script>
+    
+</body>
+</html>

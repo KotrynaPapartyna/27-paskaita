@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27 paskaita Namas</title>
+        
+        <style>
+
+        .butas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black; 
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .laiptine {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    
+        </style>
+    
+</head>
+
+    
+<body>
+    
+    <div class="container namas">
+<!--
+    
+    
+        <div class="laiptine">
+            <div class="butas">0</div>
+        </div>
+
+        <div class="laiptine">
+            <div class="butas">0</div>
+            <div class="butas">1</div>
+            <div class="butas">1</div>
+        </div>
+
+        <div class="laiptine">
+            <div class="butas">0</div>
+            <div class="butas">1</div>
+            <div class="butas">1</div>
+            <div class="butas">1</div>
+        </div>
+
+        <div class="laiptine">
+            <div class="butas">0</div>
+            <div class="butas">1</div>
+            <div class="butas">0</div>
+            <div class="butas">1</div>
+            <div class="butas">1</div>
+            <div class="butas">1</div>
+        </div>
+         
+    </div>
+    -->
+</div>
+        
+    <script>
+        "use strict"
+                        ///uzduotis
+            //1. Susikurti objektą "Namas".
+            //Objekto kintamieji:
+            //miestas - tekstas,
+            //pastatymo data - datos formatas,
+            //adresas - tekstas,
+            //laiptinių skaičius - masyvas, turintis tiek elementų, kiek yra laiptinių. Pvz: [1,2,3,4]
+            //butų skaičius - masyvas, turintis tiek elementų, kiek butų yra laiptinėje.Pvz: [20, 22, 19, 13]
+            //bendras butų skaičius - suskaičiuojamas automatiškai. Apskaičiavimui susikurti metodą.
+
+
+            //1 - susikuriamas objektas ir kintamieji
+            
+                      
+            
+            
+            var namas = {
+                //1.1
+                miestas:"vilnius", // su ""
+
+                // 1.2 datai naudojama- "new Date"
+                pastatymoData: new Date("2010"),
+                adresas: "vasaros g. 5", // su ""
+
+                // 1.3 masyvas su tiek elementu, kiek yra laiptiniu
+                laiptiniuSk: [ "pirma", "antra", "trecia"], // masyvas turi 4-ias laiptines+ penkta 
+
+                // 1.4 masyvas su tiek elementu, kiek yra butu laiptineje
+                butuSk: [1, 2, 5], // kiekvienas skaicius nurodo, kiek butu yra laiptineje (masyve)
+
+                // 1.5 sis skaicius turi buti apskaiciuojamas automatiskai. tam reikia metodo
+                bendrasButuSk: 0,
+
+                paleidimas: function() {
+                    this.suskaiciuokButus();
+                    this.nubraizyk(); 
+                },
+
+                // 1.6 metodas apskaiciuojantis butu skaicius 
+                suskaiciuokButus: function() {
+                    var masyvas = this.butuSk; 
+                
+                    //1.7 sukuriamas ciklas butu skaiciui 
+                    for (var i=0; i<masyvas.length; i++) {
+                        this.bendrasButuSk += masyvas[i];
+                    }
+                },
+
+                nubraizyk: function() {
+
+                    //nurodomas kur patalpinama- braizoma 
+                    var container = document.querySelector(".container");        
+
+                    // atliekamas ciklas
+                    for (var i = 0; i < this.laiptiniuSk.length; i ++) {
+                        var laiptine= document.createElement("div");
+                        laiptine.classList.add("laiptine");
+                        laiptine.innerHTML=this.laiptiniuSk [i]; 
+                        
+
+                        // ciklas cikle 
+                        for (var j=0; j < this.butuSk[i]; j++) {
+                            var butas= document.createElement("div");
+                            butas.classList.add("butas"); 
+                            laiptine.append(butas);
+
+                        }
+                        
+                        //prideda div'us
+                        container.append(laiptine); 
+                    }
+
+                }
+
+            }
+                namas.paleidimas();
+                console.log(namas);
+     
+    </script>
+    
+</body>
+</html>
